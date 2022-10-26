@@ -1,4 +1,5 @@
 #计算两条DNA的Hamming距离
+#利用readline()方法循环遍历文件的每一行
 with open('rosalind_hamm.txt') as file:
     dna1 = list(file.readline().strip())
     dna2 = list(file.readline().strip())
