@@ -1,0 +1,29 @@
+#计算FASTA中GC含量最大的序列
+#读取FASTA文件，生成字典
+with open('rosalind_gc.txt') as fa:
+    fa_dict = {}
+    for line in fa:
+        # 去除末尾换行符
+        line = line.replace('\n','')
+        if line.startswith('>'):
+            # 去除 > 号
+            seq_name = line[1:]
+            fa_dict[seq_name] = ''
+        else:
+            # 去除末尾换行符并连接多行序列
+            fa_dict[seq_name] += line.replace('\n','')
+
+#计算GC含量
+max_GC_content=0
+max_GC_content_name=''
+for smple_name in fa_dict.keys():
+    GC_data=data=GC_content=0
+    for bases in list(fa_dict[smple_name]):
+        data=data+1
+        if bases=='G'or bases=='C':
+            GC_data=GC_data+1
+    GC_content=GC_data/data
+    if GC_content>=max_GC_content:
+        max_GC_content=GC_content
+        max_GC_content_name=smple_name
+print(f"{max_GC_content_name}\n{max_GC_content*100}")
