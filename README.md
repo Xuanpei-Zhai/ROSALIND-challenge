@@ -1,2 +1,3 @@
-# -python-
-实现一些简单生信操作的python脚本
+# Rosalind code
+Some simple python code for generating letters.  
+email：zhaixp2022@shanghaitech.edu.cn  
